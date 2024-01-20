@@ -1,28 +1,43 @@
-fetch('/api/CheckLogin', {
-  method: 'GET',
-  headers: {
-      'Content-Type': 'application/json',
-  },
-})
-  .then(response => {
-      if(response.status == 401) {
-          window.location.href = 'index.html';
-      }
-      else if(response.ok) {
-          return response.json();
-      }
-  })
-  .then(data => {
-      console.log(data);
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  })
-
 document.addEventListener('DOMContentLoaded', function () {
+
+  fetch('/api/CheckLogin', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+  })
+    .then(response => {
+        if(response.status == 401) {
+            window.location.href = 'index.html';
+        }
+        else if(response.ok) {
+            return response.json();
+        }
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+
+  fetch('/api/GetUser', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.success) {
+        document.getElementById('profile-button').textContent = data.message;
+      }
+  })
+  .catch(error => console.error(error));
 
   let updateButtonId = document.getElementById("update-button");
   let filtersButtonId = document.getElementById("filters-button");
+  let logoutId = document.getElementById("logout");
 
   updateButtonId.addEventListener('click', function (event) {
     event.preventDefault();
@@ -33,6 +48,24 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
     document.getElementById("contentleft").innerHTML = "Filters";
   });
+
+  logoutId.addEventListener('click', function (event) {
+    event.preventDefault();
+    fetch('/api/LogoutUser', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  })
+      .then(response => response.json())
+      .then(data => {
+        if(data.success) {
+          window.location.href = 'index.html';
+        }
+      })
+      .catch(error => console.error(error));
+  });
+
   const calendarContainer = document.getElementById('calendar-container');
   let currentYear, currentMonth;
 

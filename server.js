@@ -112,6 +112,20 @@ function appendToFile(filePath, data) {
     });
 }
 
+app.get('/api/GetUser', (req, res) => {
+    if(username == '') {
+        res.json({success: false, message: 'No user found.'});
+    }
+    else {
+        res.json({success: true, message: username});
+    }
+});
+
+app.post('/api/LogoutUser', (req, res) => {
+    username = '';
+    res.json({success: true});
+});
+
 app.post('/api/LoginUser', async (req, res) => {
     let result = await searchFile(DataBase, req.body.username, req.body.password, true);
     if(result == true) {
