@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-color: #555;
 }
 
 #nav-bar {
@@ -25,13 +26,13 @@ body {
     border-radius: 5px;
     cursor: pointer;
     display: flex;
-    align-items: center; /* Center items vertically within the button */
+    align-items: center;
 }
 
 #profile-button img {
-    width: 20px; /* Set the width of the image */
-    height: 20px; /* Set the height of the image */
-    margin-right: 10px; /* Add some margin to the right of the image */
+    width: 20px;
+    height: 20px; 
+    margin-right: 10px;
 }
 
 #container {
@@ -46,65 +47,70 @@ body {
     padding: 20px;
 }
 
-#content {
-    flex: 1;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-    background-color: #000000;
-    color: #fff;
+.button {
+  display: block;
+  border:none;
+  background: rgba(255,255,255,0.5);
+  color: white;
+  width:50%;
+  font-size: 18px;
+  padding: 15px;
+  cursor:pointer;
+  }
+.button-container {
+  display: flex;
 }
 
-  .calendar {
-    max-width: 1500px;
-    margin: 20px auto;
-    background-color: #3a3939;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    color: #fff;
-  }
+#calendar-container {
+  background-color: #3a3939;
+  border: 1px solid white;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 660px;
+  width: 1500px;
+}
 
-  .calendar-header {
-    background-color: #6a7486;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.5em;
-  }
+table {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+}
 
-  .calendar-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    border-bottom: 1px solid #ffffff;
-  }
+th, td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
 
-  .calendar-day {
-    padding: 30px;
-    text-align: center;
-  }
+th {
+  background-color: #555555;
+  color: white;
+}
 
-  .calendar-day:hover {
-    background-color: #484747;
-  }
+td {
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-  .event {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 5px;
-    margin: 2px;
-    border-radius: 4px;
-  }
-  .button {
-    display: block;
-    border:none;
-    background: rgba(255,255,255,0.5);
-    color: white;
-    width:50%;
-    font-size: 18px;
-    padding: 15px;
-    cursor:pointer;
-   }
-.button-container {
-    display: flex;
-  }
-  
+td:hover {
+  background-color: #555;
+}
+
+td:not(:empty) {
+  font-size: 14px;
+  vertical-align: top;
+}
+
+.prev-next-button {
+  background-color: #555555;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.prev-next-button:hover {
+  background-color: #2980b9;
+}
