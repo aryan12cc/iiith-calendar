@@ -36,3 +36,9 @@ for (let i = 1; i <= 31; i++) {
     dayElement.appendChild(eventElement);
   }
 }
+function change_textupdate(){
+  document.getElementById("contentleft").innerHTML="UPDATES";
+}
+function change_textfilters(){
+  document.getElementById("contentleft").innerHTML="FILTERS";
+}
