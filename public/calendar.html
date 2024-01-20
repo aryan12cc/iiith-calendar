@@ -11,7 +11,16 @@
     <div id="nav-bar">
         <!-- Content for the navigation bar -->
         <p>Nav Bar</p>
-        <button id="profile-button"><img src="profile.png" alt="Profile Image">Profile</button>
+        <div class="dropdown" style="float: right;">
+            <button class="dropbtn" onclick="myFunction()"><img src="profile.png" alt="Profile Image">
+                <span>Profile</span>
+            </button>
+            <div class="dropdown-content">
+                <a href="#about">Add Requests</a>
+                <a href="#contact">Show Requests</a>
+                <a href="#home">Log Out</a>
+            </div>
+        </div>
     </div>
 
     <div id="container">
@@ -28,6 +37,7 @@
         </div>
         <div id="calendar-container"></div>
     </div>
+    <script src="profile.js"></script>
     <script src="calendar.js"></script>
 </body>
 </html>
