@@ -13,3 +13,5 @@ git push origin main
 ```
 git pull
 ```
+
+### To push 
