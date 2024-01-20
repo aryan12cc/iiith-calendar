@@ -1,3 +1,24 @@
+fetch('/api/CheckLogin', {
+  method: 'GET',
+  headers: {
+      'Content-Type': 'application/json',
+  },
+})
+  .then(response => {
+      if(response.status == 401) {
+          window.location.href = 'index.html';
+      }
+      else if(response.ok) {
+          return response.json();
+      }
+  })
+  .then(data => {
+      console.log(data);
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  })
+
 // Dynamically populate the calendar days
 const calendarDays = document.querySelector('.calendar-days:last-child');
 

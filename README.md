@@ -14,4 +14,14 @@ git push origin main
 git pull
 ```
 
-### To push 
+
+### Project Related Issues
+
+To run the project you first need to download express and bcrypt. Run the following commands.
+
+```
+npm install express
+npm install bcrypt
+```
+
+To run the server, run `node server.js`.
