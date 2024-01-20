@@ -17,7 +17,13 @@ git pull
 
 ### Project Related Issues
 
-To run the project you first need to download express and bcrypt. Run the following commands.
+To run the project you first need to download npm.
+
+For MacOS users, run `brew install npm` in the terminal.
+
+For Linux users, run `sudo apt install npm` in the terminal.
+
+Now you need to install express and bcrypt. Run the following commands.
 
 ```
 npm install express
