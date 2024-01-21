@@ -20,11 +20,14 @@ npm install bcrypt
 To run the server, run `node server.js` on your terminal.
 
 ### Overview
+
+[PowerPoint Presentation](https://iiitaphyd-my.sharepoint.com/:p:/g/personal/siddarth_g_students_iiit_ac_in/EV4lSy507J1MiMUchGnDvdsB07cap9GcWI9V4EmNi52E8g?e=1fg1fS)
+
 Day Overflow is a personalized calendar website with user-friendly interface that aids users to have hassle-free schedule planning opportunities.​
 
 It is designed to sync your academic timetable, everything from classes and assignments to tutorials and labs, and guide you through your day!​
 
-But all work and no play makes Jack a dull boy :( ​
+But all work and no play makes Jack a dull boy :(
 
 Day overflow reminds you of other events including clubs, talks and sports other fun events happening in Hyderabad!
 
