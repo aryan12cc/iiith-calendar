@@ -6,6 +6,7 @@ body {
     flex-direction: column;
     height: 100vh;
     background-color: #555;
+    overflow: hidden; /* Prevent scrolling on the entire body */
 }
 
 #nav-bar {
@@ -38,6 +39,7 @@ body {
 #container {
     display: flex;
     flex: 1;
+    overflow: hidden; /* Prevent scrolling on the entire container */
 }
 
 #left-window {
@@ -45,6 +47,48 @@ body {
     background-color: #333;
     color: #fff;
     padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+}
+
+#box-container {
+  /* Adjust the styles as needed */
+  margin-bottom: 10px; /* Add some space between boxes */
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  padding: 15px;
+  margin-bottom: 20px; /* Increased margin for better separation between boxes */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+}
+
+.box hr {
+  border: 1px solid white;
+  margin: 15px 0;
+}
+
+.box p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.box button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .button {
