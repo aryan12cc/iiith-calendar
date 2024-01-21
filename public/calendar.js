@@ -1,14 +1,41 @@
-function handleAddButtonClick() {
-  alert("Event Added"); 
+function handleAddButtonClick(num) {
   const clickedButton = event.currentTarget;
   const dateId = clickedButton.id.replace("button", "event");
   const datecon=document.getElementById(dateId).innerHTML;
   const datear=datecon.split("-");
-  console.log(datecon.split("-"));
   const selectedDay =datear[0];
   const selectedMonth=datear[1];
   const selectedYear=datear[2];
-  console.log(selectedDay,selectedMonth,selectedYear);
+  let newDiv = document.createElement('div');
+  if(num == 0) {
+    newDiv.textContent = "sports";
+  }
+  else if(num == 1) {
+    newDiv.textContent = "streaming";
+  }
+  else {
+    newDiv.textContent = "midsems";
+  }
+  let table = document.getElementById('myTable');
+
+  if(newDiv.textContent === "sports") {
+    let row = 2;
+    let column = 3;
+    let cell = table.rows[row].cells[column];
+    cell.appendChild(newDiv);
+  }
+  else if(newDiv.textContent === "streaming") {
+    let row = 2;
+    let column = 4;
+    let cell = table.rows[row].cells[column];
+    cell.appendChild(newDiv);
+  }
+  else {
+    let row = 2;
+    let column = 6;
+    let cell = table.rows[row].cells[column];
+    cell.appendChild(newDiv);
+  }
 }
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -126,14 +153,14 @@ function renderUpdatesContent() {
       <a id="eventdate${i}" href="#" target="_blank">${arraydates[i]}</a>
       <hr>
       <p id="eventcontent">${arraycontents[i]}</p>
-      <button id="buttondate${i}" onclick="handleAddButtonClick()">Add</button>
+      <button id="buttondate${i}" onclick="handleAddButtonClick(${i})">Add</button>
     `;
     boxContainer.appendChild(box);
   }
 }
 
-let arraydates=["4-1-2024","5-1-2024","7-1-2024"];
-let arraycontents=["sports","streaming","midsems"];
+var arraydates=["4-1-2024","5-1-2024","7-1-2024"];
+var arraycontents=["sports","streaming","midsems"];
 function clearLeftWindow() {
   var boxContainer = document.getElementById('box-container');
   boxContainer.innerHTML = ''; // Clear existing content
@@ -142,7 +169,7 @@ function generateCalendarHTML(daysInMonth, firstDay) {
   firstDay = firstDay - 1;
   if(firstDay == -1) firstDay = 6;
   let dayCount = 1;
-  let calendarHTML = '<table>';
+  let calendarHTML = '<table id=myTable>';
   calendarHTML += '<thead><tr><th class="prev-next-button" onclick="prevMonth()">&#9665;</th>';
   calendarHTML += `<th colspan="5">${getMonthName(currentMonth)} ${currentYear}</th>`;
   calendarHTML += '<th class="prev-next-button" onclick="nextMonth()">&#9655;</th></tr>';
