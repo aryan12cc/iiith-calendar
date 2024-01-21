@@ -110,8 +110,12 @@ background-color: #3a3939;
 border: 1px solid white;
 border-radius: 8px;
 overflow: hidden;
-height: 660px;
-width: 1500px;
+height: 90%;
+width: 75%;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+margin-bottom: auto;
 }
 
 table {
