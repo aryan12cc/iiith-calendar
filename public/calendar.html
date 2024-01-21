@@ -10,15 +10,15 @@
 
     <div id="nav-bar">
         <!-- Content for the navigation bar -->
-        <img src="logo.png">
+        <p>Nav Bar</p>
         <div class="dropdown" style="float: right;">
-            <button class="dropbtn" onclick="myFunction()"><img src="profile.png" alt="Profile Image">
-                <span>Profile</span>
+            <button id="profile-button" class="dropbtn" onclick="myFunction()"><img src="profile.png" alt="Profile Image">
+                Profile
             </button>
             <div class="dropdown-content">
                 <a href="#about">Add Requests</a>
                 <a href="#contact">Show Requests</a>
-                <a href="index.html">Log Out</a>
+                <a id="logout" href="index.html">Log Out</a>
             </div>
         </div>
     </div>
@@ -27,50 +27,12 @@
         <div id="left-window">
             <!-- Content for the left window -->
             <div class="button-container">
-                <button class="button" id="update-button">Updates</button>
-                <span>&nbsp</span>
-                <button class="button" id="filters-button">Filters </button>
+            <button class="button" id="update-button">Updates</button>
+            <span>&nbsp</span>
+            <button class="button" id="filters-button">Filters </button>
             </div>
             <div>
             <p id="contentleft">Updates</p>
-            </div>
-            <div id="box-container">
-                <div id="box-container">
-                    <div class="box">
-                        <a href="#" target="_blank">Box Heading 1</a>
-                        <hr>
-                        <p>Content for Box 1</p>
-                        <button onclick="handleAddButtonClick()">Add</button>
-                    </div>
-                    <!-- Repeat similar structure for other boxes -->
-                </div>
-                <div id="box-container">
-                    <div class="box">
-                        <a href="#" id="box1" target="_blank">Box Heading 2</a>
-                        <hr>
-                        <p>Content for Box 2</p>
-                        <button onclick="handleAddButtonClick()">Add</button>
-                    </div>
-                    <!-- Repeat similar structure for other boxes -->
-                </div>
-                <div id="box-container">
-                    <div class="box">
-                        <a href="#" target="_blank">Box Heading 3</a>
-                        <hr>
-                        <p>Content for Box 3</p>
-                        <button onclick="handleAddButtonClick()">Add</button>
-                    </div>
-                    <!-- Repeat similar structure for other boxes -->
-                </div>
-                <div id="box-container">
-                    <div class="box">
-                        <a href="#" target="_blank">Box Heading 4</a>
-                        <hr>
-                        <p>Content for Box 4</p>
-                        <button onclick="handleAddButtonClick()">Add</button>
-                    </div>
-                    <!-- Repeat similar structure for other boxes -->
-                </div>
             </div>
         </div>
         <div id="calendar-container"></div>

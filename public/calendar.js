@@ -1,96 +1,88 @@
-fetch('/api/CheckLogin', {
-  method: 'GET',
-  headers: {
-      'Content-Type': 'application/json',
-  },
-})
-  .then(response => {
-      if(response.status == 401) {
-          window.location.href = 'index.html';
-      }
-      else if(response.ok) {
-          return response.json();
-      }
-  })
-  .then(data => {
-      console.log(data);
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  })
-  function handleAddButtonClick() {
-      alert("Event Added"); 
-      const clickedButton = event.currentTarget;
-      const dateId = clickedButton.id.replace("button", "event");
-      const datecon=document.getElementById(dateId).innerHTML;
-      const datear=datecon.split("-");
-      console.log(datecon.split("-"));
-      const selectedDay =datear[0];
-      const selectedMonth=datear[1];
-      const selectedYear=datear[2];
-      console.log(selectedDay,selectedMonth,selectedYear);
-  }
-  
-  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
-    let updateButtonId = document.getElementById("update-button");
-    let filtersButtonId = document.getElementById("filters-button");
-  
-    updateButtonId.addEventListener('click', function (event) {
-      event.preventDefault();
-      document.getElementById("contentleft").innerHTML = "Updates";
-      renderUpdatesContent();
-    });
-  
-    filtersButtonId.addEventListener('click', function (event) {
-      event.preventDefault();
-      document.getElementById("contentleft").innerHTML = "Filters";
-      clearLeftWindow();
-    });
-  
-    const calendarContainer = document.getElementById('calendar-container');
-    let currentYear, currentMonth;
-  
-    function renderCalendar(year, month) {
+  fetch('/api/CheckLogin', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+  })
+    .then(response => {
+        if(response.status == 401) {
+            window.location.href = 'index.html';
+        }
+        else if(response.ok) {
+            return response.json();
+        }
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+
+  fetch('/api/GetUser', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.success) {
+        document.getElementById('profile-button').textContent = data.message;
+      }
+  })
+  .catch(error => console.error(error));
+
+  let updateButtonId = document.getElementById("update-button");
+  let filtersButtonId = document.getElementById("filters-button");
+  let logoutId = document.getElementById("logout");
+
+  updateButtonId.addEventListener('click', function (event) {
+    event.preventDefault();
+    document.getElementById("contentleft").innerHTML = "Updates";
+  });
+
+  filtersButtonId.addEventListener('click', function (event) {
+    event.preventDefault();
+    document.getElementById("contentleft").innerHTML = "Filters";
+  });
+
+  logoutId.addEventListener('click', function (event) {
+    event.preventDefault();
+    fetch('/api/LogoutUser', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  })
+      .then(response => response.json())
+      .then(data => {
+        if(data.success) {
+          window.location.href = 'index.html';
+        }
+      })
+      .catch(error => console.error(error));
+  });
+
+  const calendarContainer = document.getElementById('calendar-container');
+  let currentYear, currentMonth;
+
+  function renderCalendar(year, month) {
       const currentDate = new Date();
       currentYear = year || currentDate.getFullYear();
       currentMonth = month || currentDate.getMonth();
-  
+
       const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
       const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-  
+
       const calendarHTML = generateCalendarHTML(daysInMonth, firstDay);
       calendarContainer.innerHTML = calendarHTML;
-  
+
       updateMonthHeader();
       addEventListeners();
-    }
-  
-    function renderUpdatesContent() {
-      var boxContainer = document.getElementById('box-container');
-      boxContainer.innerHTML = ''; // Clear existing content
-  
-      // Create and append new content (div boxes) based on your needs
-      for (var i = 0; i <= 2; i++) {
-        var box = document.createElement('div');
-        box.className = 'box';
-        box.innerHTML = `
-          <a id="eventdate${i}" href="#" target="_blank">${arraydates[i]}</a>
-          <hr>
-          <p id="eventcontent">${arraycontents[i]}</p>
-          <button id="buttondate${i}" onclick="handleAddButtonClick()">Add</button>
-        `;
-        boxContainer.appendChild(box);
-      }
-    }
-
-    let arraydates=["4-1-2024","5-1-2024","7-1-2024"];
-    let arraycontents=["sports","streaming","midsems"];
-    function clearLeftWindow() {
-      var boxContainer = document.getElementById('box-container');
-      boxContainer.innerHTML = ''; // Clear existing content
-    }
-  
+  }
 
   function generateCalendarHTML(daysInMonth, firstDay) {
     firstDay = firstDay - 1;
