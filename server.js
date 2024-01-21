@@ -130,8 +130,6 @@ app.post('/api/LoginUser', async (req, res) => {
     let result = await searchFile(DataBase, req.body.username, req.body.password, true);
     if(result == true) {
         username = req.body.username;
-        // userTodoListFile = req.body.username + '.txt';
-        // userTodoList = readFromFile(userTodoListFile);
         res.json({success: true, message: 'Logged in successfully.'});
     }
     else {

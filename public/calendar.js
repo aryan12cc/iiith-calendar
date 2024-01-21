@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
   .then(response => response.json())
   .then(data => {
       if (data.success) {
-        document.getElementById('profile-button').textContent = data.message;
+        document.getElementById('profile-button').querySelector('p').textContent = data.message;
       }
   })
   .catch(error => console.error(error));
@@ -38,15 +38,16 @@ document.addEventListener('DOMContentLoaded', function () {
   let updateButtonId = document.getElementById("update-button");
   let filtersButtonId = document.getElementById("filters-button");
   let logoutId = document.getElementById("logout");
+  let profileButtonId = document.getElementById("profile-button");
 
   updateButtonId.addEventListener('click', function (event) {
     event.preventDefault();
-    document.getElementById("contentleft").innerHTML = "Updates";
+    document.getElementById("contentleft").textContent = "Updates";
   });
 
   filtersButtonId.addEventListener('click', function (event) {
     event.preventDefault();
-    document.getElementById("contentleft").innerHTML = "Filters";
+    document.getElementById("contentleft").textContent = "Filters";
   });
 
   logoutId.addEventListener('click', function (event) {
@@ -64,6 +65,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       })
       .catch(error => console.error(error));
+  });
+
+  profileButtonId.addEventListener('click', function (event) {
+    event.preventDefault();
+    window.onclick = function(event1) {
+      if (!event1.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+          }
+          }
+      }
+    }
   });
 
   const calendarContainer = document.getElementById('calendar-container');
