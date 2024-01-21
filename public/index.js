@@ -81,18 +81,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(data => {
                     if (data.success) {
                         document.getElementById('registerForm').reset();
-                        usernameUniqueDiv.style.color = 'black';
-                        passwordLengthDiv.style.color = 'black';
-                        passwordNumberDiv.style.color = 'black';
-                        passwordCapitalDiv.style.color = 'black';
-                        passwordSpecialDiv.style.color = 'black';
+                        usernameUniqueDiv.style.color = 'white';
+                        passwordLengthDiv.style.color = 'white';
+                        passwordNumberDiv.style.color = 'white';
+                        passwordCapitalDiv.style.color = 'white';
+                        passwordSpecialDiv.style.color = 'white';
                         switchForm();
                     } else {
-                        usernameUniqueDiv.style.color = (!data.username_taken) ? 'black' : 'red';
-                        passwordLengthDiv.style.color = (!data.length) ? 'black' : 'red';
-                        passwordNumberDiv.style.color = (!data.number) ? 'black' : 'red';
-                        passwordCapitalDiv.style.color = (!data.capital) ? 'black' : 'red';
-                        passwordSpecialDiv.style.color = (!data.special) ? 'black': 'red';
+                        usernameUniqueDiv.style.color = (!data.username_taken) ? 'white' : 'red';
+                        passwordLengthDiv.style.color = (!data.length) ? 'white' : 'red';
+                        passwordNumberDiv.style.color = (!data.number) ? 'white' : 'red';
+                        passwordCapitalDiv.style.color = (!data.capital) ? 'white' : 'red';
+                        passwordSpecialDiv.style.color = (!data.special) ? 'white': 'red';
                     }
                 })
                 .catch(error => console.error(error));
@@ -106,11 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
             let passwordNumberDiv = document.getElementById('register-password-number');
             let passwordCapitalDiv = document.getElementById('register-password-capital');
             let passwordSpecialDiv = document.getElementById('register-password-special');
-            usernameUniqueDiv.style.color = 'black';
-            passwordLengthDiv.style.color = 'black';
-            passwordNumberDiv.style.color = 'black';
-            passwordCapitalDiv.style.color = 'black';
-            passwordSpecialDiv.style.color = 'black';
+            usernameUniqueDiv.style.color = 'white';
+            passwordLengthDiv.style.color = 'white';
+            passwordNumberDiv.style.color = 'white';
+            passwordCapitalDiv.style.color = 'white';
+            passwordSpecialDiv.style.color = 'white';
         }
         loginFormId.style.display = loginFormId.style.display === 'block' ? 'none' : 'block';
         registerFormId.style.display = registerFormId.style.display === 'block' ? 'none' : 'block';
