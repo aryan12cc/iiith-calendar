@@ -88,7 +88,7 @@ updateButtonId.addEventListener('click', function (event) {
 filtersButtonId.addEventListener('click', function (event) {
   event.preventDefault();
   document.getElementById("contentleft").textContent = "Filters";
-  clearLeftWindow();
+  renderFiltersContent();
 });
 
 logoutId.addEventListener('click', function (event) {
@@ -157,6 +157,37 @@ function renderUpdatesContent() {
     `;
     boxContainer.appendChild(box);
   }
+}
+function renderFiltersContent() {
+  var boxContainer = document.getElementById('box-container');
+  boxContainer.innerHTML = ''; // Clear existing content
+  var box = document.createElement('div');
+    box.className = 'box';
+    box.innerHTML = `
+    <div class="buttonsd">
+    <div class="dropdown2" style="float: left;">
+    <button class="dropbtn" onclick="myFunction()">
+        <span>Academics</span>
+    </button>
+    <div class="dropdown2-content">
+        <a href="#about">Courses</a>
+        <a href="#contact">Labs</a>
+        <a href="#home">Seminars</a>
+    </div> 
+    </div>
+    <div class="dropdown3" style="float: left;">
+<button class="dropbtn" onclick="myFunction()">
+        <span>Sports</span>
+    </button>
+    <div class="dropdown3-content">
+        <a href="#about">Basketball</a>
+        <a href="#contact">Football</a>
+        <a href="#home">Cricket</a>
+    </div>
+    </div>
+    `;
+    boxContainer.appendChild(box);
+ 
 }
 
 var arraydates=["4-1-2024","5-1-2024","7-1-2024"];
