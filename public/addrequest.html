@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Calendar</title>
-    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="addrequest.css">
 </head>
 <body>
 
@@ -26,19 +26,28 @@
 
     <div id="container">
         <div id="left-window">
-            <!-- Content for the left window -->
             <div class="button-container">
             <button class="button" id="update-button">Updates</button>
-            <span>&nbsp</span>
-            <button class="button" id="filters-button">Filters </button>
             </div>
             <div>
             <p id="contentleft">Updates</p>
             </div>
         </div>
-        <div id="calendar-container"></div>
+        <div id="form-container">
+            <form id='RequestForm' style='display: block;'>
+                <h2 style="color:aliceblue;font-size: 30px;" align="center">Add Request</h2>
+                <div class="forminput">
+                <input style="font-size:20px ;width:40%;text-align-last: center;" type='date' placeholder='Date of Event(DD-MM-YYYY)' id='eventdate' required>  
+                <input style="font-size:15pt;height:40px;width:90%;text-align-last: center;" type='text' placeholder='Event Title' id='input-event' required>
+                <br>
+                <textarea style="font-size:15pt;height:400px;width:90%;" id="input-event-details" placeholder="Event Details" >
+                </textarea><br><br>
+                <button class="dropbtn" type='submit'>Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="profile.js"></script>
-    <script src="calendar.js"></script>
+    <script src="addrequest.js"></script>
 </body>
 </html>
